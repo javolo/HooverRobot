@@ -39,7 +39,7 @@ public class HooverRobot {
      * 
      * @param instructions to be executed by the Hoover Robot
      */
-    public void executeCommands(List<Character> instructions) {
+    public void executeInstructionList(List<Character> instructions) {
     	LOG.info("Executing instructions: " + instructions.toString());
     	instructions.stream().forEach(inst -> {
             switch(Character.toUpperCase(inst)) {
