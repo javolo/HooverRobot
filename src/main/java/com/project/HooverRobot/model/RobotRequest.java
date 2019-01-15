@@ -10,10 +10,10 @@ public class RobotRequest extends RobotBaseClass {
 
     public RobotRequest(
             @JsonProperty("roomSize") int[] roomSize,
-            @JsonProperty("initialPosition") int[] coords,
+            @JsonProperty("initialPosition") int[] initPosition,
             @JsonProperty("dirtPatches") int[][] patches,
             @JsonProperty("instructions") String instructions) {
-        super(coords);
+        super(initPosition);
         this.roomSize = roomSize;
         this.dirtPatches = patches;
         this.instructions = instructions;

@@ -18,7 +18,7 @@ public class HooverUtils {
 	private final Logger LOG = LoggerFactory.getLogger(HooverUtils.class);
 
 	public void validateRoomSize(int[] roomSize) throws HooverException {
-		LOG.debug("Validating room size: ", roomSize);
+		
 		// Room Size is not null.
 		// Room Size has two elements.
 		// Both elements of room size array has to be equals.
@@ -26,11 +26,12 @@ public class HooverUtils {
 		if(roomSize == null || roomSize.length != 2 || roomSize[0] != roomSize[1] || roomSize[0] < 1 || roomSize[1] < 1) {
 			throw new HooverException("The room size used is incorrect or not valid. Please check your room size parameter.");
 		}
+		LOG.debug("Validating room size: [" + roomSize[0] + ", " + roomSize[1] + "]");
 		LOG.debug("Room size input is correct!");
 	}
 
 	public void validateInitialPosition(int[] coords, int[] roomSize) throws HooverException {
-		LOG.debug("Validating Initial Position: ", coords);
+		
 		// Initial position is not null.
 		// Initial position has two elements.
 		// Both elements of room size array has to be less than room size.
@@ -38,6 +39,7 @@ public class HooverUtils {
 		if(coords == null|| coords.length != 2 || coords[0] > roomSize[0] || coords[1] > roomSize[1] || coords[0] < 0 || coords[1] < 0) {
 			throw new HooverException("The initial position is incorrect or not valid. Please check your initial position parameter.");
 		}
+		LOG.debug("Validating Initial Position: [" + coords[0] + ", " + coords[1] + "]");
 		LOG.debug("Initial position input is correct!");
 	}
 
@@ -66,14 +68,17 @@ public class HooverUtils {
 
 	// Function that validates if the list of instructions passed as parameter are correct
 	public List<Character> validateInstructionsList(String instructions) throws HooverException {
-		LOG.debug("Validating instruction list: ", instructions);
+		LOG.debug("Validating instruction list: " + instructions);
 		if(instructions != null) {
 			List<Character> list;
+			// We replace all special characters, blank spaces with empty string.
+			instructions = instructions.replaceAll("\\s+","");
+			// The pattern is any N, S, E, W and any number of occurrences of them.
 			Pattern pt = Pattern.compile("[^NESW]+");
 			Matcher match = pt.matcher(instructions);
 			if(!match.matches()) {
 				list = new LinkedList<>();
-				final char[] chars = instructions.toCharArray();
+				final char[] chars = instructions.toUpperCase().toCharArray();
 				for(int i=0; i<chars.length;i++) {
 					list.add(chars[i]);
 				}

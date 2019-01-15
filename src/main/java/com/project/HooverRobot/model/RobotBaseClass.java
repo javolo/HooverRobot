@@ -12,7 +12,7 @@ public class RobotBaseClass {
 		this.initialPosition = initPosition;
 	}
 
-	public int[] getCoords() {
+	public int[] getInitialPosition() {
 		return initialPosition;
 	}
 	

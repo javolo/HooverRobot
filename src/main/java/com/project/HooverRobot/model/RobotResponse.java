@@ -42,7 +42,7 @@ public class RobotResponse extends RobotBaseClass{
 
 	@Override
 	public String toString() {
-		return "RoboHooverResponse{" + "coords=" + Arrays.toString(getCoords()) + "patches=" + dirtRemovalCount + '}';
+		return "RoboHooverResponse{" + "coords=" + Arrays.toString(getInitialPosition()) + "patches=" + dirtRemovalCount + '}';
 	}
 
 }
