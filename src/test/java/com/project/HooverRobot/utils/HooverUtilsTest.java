@@ -8,18 +8,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.project.HooverRobot.exception.HooverException;
+import com.project.HooverRobot.model.RobotConstants;
 import com.project.HooverRobot.model.RobotRequest;
 
 public class HooverUtilsTest {
 
 	private HooverUtils robotUtils;
 	private RobotRequest robotRequest;
-
-	private static final String ROOMINCORRECT = "The room size used is incorrect or not valid. Please check your room size parameter.";
-	private static final String INITPOSITIONINCORRECT = "The initial position is incorrect or not valid. Please check your initial position parameter.";
-	private static final String INSTRUCTIONSNULL = "The instructions list passed as parameter is null. Please input a valid combination.";
-	private static final String INSTRUCTIONSINCORRECT = "The instruction list contains invalid characters. Please input one of this four: N, S, E, W.";
-
 
 	@Before
 	public void setUp() {
@@ -39,7 +34,7 @@ public class HooverUtilsTest {
 			robotUtils.validateRoomSize(robotRequest.getRoomSize());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(ROOMINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.ROOMINCORRECT, e.getMessage());
 		}
 	}
 
@@ -61,7 +56,7 @@ public class HooverUtilsTest {
 			robotUtils.validateRoomSize(robotRequest.getRoomSize());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(ROOMINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.ROOMINCORRECT, e.getMessage());
 		}
 	}
 
@@ -72,7 +67,7 @@ public class HooverUtilsTest {
 			robotUtils.validateRoomSize(robotRequest.getRoomSize());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(ROOMINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.ROOMINCORRECT, e.getMessage());
 		}
 	}
 
@@ -83,7 +78,7 @@ public class HooverUtilsTest {
 			robotUtils.validateRoomSize(robotRequest.getRoomSize());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(ROOMINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.ROOMINCORRECT, e.getMessage());
 		}
 	}
 
@@ -94,7 +89,7 @@ public class HooverUtilsTest {
 			robotUtils.validateRoomSize(robotRequest.getRoomSize());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(ROOMINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.ROOMINCORRECT, e.getMessage());
 		}
 	}
 
@@ -105,7 +100,7 @@ public class HooverUtilsTest {
 			robotUtils.validateInitialPosition(robotRequest.getInitialPosition(), robotRequest.getRoomSize());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(INITPOSITIONINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.INITPOSITIONINCORRECT, e.getMessage());
 		}
 	}
 
@@ -127,7 +122,7 @@ public class HooverUtilsTest {
 			robotUtils.validateInitialPosition(robotRequest.getInitialPosition(), robotRequest.getRoomSize());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(INITPOSITIONINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.INITPOSITIONINCORRECT, e.getMessage());
 		}
 	}
 
@@ -138,7 +133,7 @@ public class HooverUtilsTest {
 			robotUtils.validateInstructionsList(robotRequest.getInstructions());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(INSTRUCTIONSNULL, e.getMessage());
+			assertEquals(RobotConstants.INSTRUCTIONSNULL, e.getMessage());
 		}
 	}
 
@@ -160,7 +155,7 @@ public class HooverUtilsTest {
 			robotUtils.validateInstructionsList(robotRequest.getInstructions());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(INSTRUCTIONSINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.INSTRUCTIONSINCORRECT, e.getMessage());
 		}
 	}
 
@@ -171,7 +166,7 @@ public class HooverUtilsTest {
 			robotUtils.validateInstructionsList(robotRequest.getInstructions());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(INSTRUCTIONSINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.INSTRUCTIONSINCORRECT, e.getMessage());
 		}
 	}
 
@@ -193,7 +188,7 @@ public class HooverUtilsTest {
 			robotUtils.validateInstructionsList(robotRequest.getInstructions());
 		} catch (Exception e) {
 			assertTrue(e instanceof HooverException);
-			assertEquals(INSTRUCTIONSINCORRECT, e.getMessage());
+			assertEquals(RobotConstants.INSTRUCTIONSINCORRECT, e.getMessage());
 		}
 	}
 

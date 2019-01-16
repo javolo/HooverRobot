@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.project.HooverRobot.exception.HooverException;
+import com.project.HooverRobot.model.RobotConstants;
 
 public class HooverUtils {
 
@@ -24,22 +25,22 @@ public class HooverUtils {
 		// Both elements of room size array has to be equals.
 		// Both elements of room size array has to be greater than 0, if not we won´t have a room.
 		if(roomSize == null || roomSize.length != 2 || roomSize[0] != roomSize[1] || roomSize[0] < 1 || roomSize[1] < 1) {
-			throw new HooverException("The room size used is incorrect or not valid. Please check your room size parameter.");
+			throw new HooverException(RobotConstants.ROOMINCORRECT);
 		}
 		LOG.debug("Validating room size: [" + roomSize[0] + ", " + roomSize[1] + "]");
 		LOG.debug("Room size input is correct!");
 	}
 
-	public void validateInitialPosition(int[] coords, int[] roomSize) throws HooverException {
+	public void validateInitialPosition(int[] initPosition, int[] roomSize) throws HooverException {
 		
 		// Initial position is not null.
 		// Initial position has two elements.
 		// Both elements of room size array has to be less than room size.
 		// Both elements of room size array has to be greater than 0.
-		if(coords == null|| coords.length != 2 || coords[0] > roomSize[0] || coords[1] > roomSize[1] || coords[0] < 0 || coords[1] < 0) {
-			throw new HooverException("The initial position is incorrect or not valid. Please check your initial position parameter.");
+		if(initPosition == null|| initPosition.length != 2 || initPosition[0] > roomSize[0] || initPosition[1] > roomSize[1] || initPosition[0] < 0 || initPosition[1] < 0) {
+			throw new HooverException(RobotConstants.INITPOSITIONINCORRECT);
 		}
-		LOG.debug("Validating Initial Position: [" + coords[0] + ", " + coords[1] + "]");
+		LOG.debug("Validating Initial Position: [" + initPosition[0] + ", " + initPosition[1] + "]");
 		LOG.debug("Initial position input is correct!");
 	}
 
@@ -83,12 +84,12 @@ public class HooverUtils {
 					list.add(chars[i]);
 				}
 			} else {
-				throw new HooverException("The instruction list contains invalid characters. Please input one of this four: N, S, E, W.");
+				throw new HooverException(RobotConstants.INSTRUCTIONSINCORRECT);
 			}
 			LOG.debug("Instruction list is correct!");
 			return list;
 		} else {
-			throw new HooverException("The instructions list passed as parameter is null. Please input a valid combination.");
+			throw new HooverException(RobotConstants.INSTRUCTIONSNULL);
 		}
 	}
 
